@@ -1,0 +1,24 @@
+#%RAML 1.0 Trait
+
+responses:
+  400:
+    body:
+      application/json:
+        example:
+          {
+                "message": "bad request because invalid information sent by client"
+          }
+  404:
+    body:
+      application/json:
+        example:
+          {
+                "message": "sent invalid path or method "
+          }                              
+  500:
+    body:
+      application/json:
+        example:
+          {
+                "message": "Internal server error"
+          }

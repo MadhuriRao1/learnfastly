@@ -1,0 +1,57 @@
+#%RAML 1.0
+title: firsttake
+documentation:
+  - content: This API is Creation of an account with phoneno or emailid and Invoke details with phoneno or emailid
+    title: Firsttake
+
+uses:
+  allinone: library/library.raml
+
+mediaType: 
+- application/json
+
+/resource:
+  post:
+    headers:
+      Client_ID:
+        required: true
+        minLength: 5
+        maxLength: 10
+        type: string
+      Client_secrete:
+        required: true
+        maxLength: 10
+        minLength: 5
+        type: string    
+    is:
+      - allinone.bird
+    body:
+        type: allinone.postdatatype
+    responses:
+      201:
+        body:
+          example: !include example/example.raml
+              
+            
+                                        
+  get:
+    securedBy:
+      - allinone.insect
+    is:
+      - allinone.bird
+    queryParameters:
+      phoneno:
+        example: "1111111111"
+      emailid:
+        example: "emailid@gmail.com"
+    responses:
+      201:
+        body:
+            example: !include example/exampleget.raml
+              
+            
+              
+
+          
+
+          
